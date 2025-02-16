@@ -18,7 +18,7 @@ export default function SongList({ groupedSongs }: SongListProps) {
         <div className="w-full px-4 mb-2">
           <div className=" w-full rounded-2xl bg-white p-2">
             <Disclosure key={group}>
-              {({ open }) => (
+              {() => (
                 <>
                   <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#eef3f8] px-4 py-2 text-left text-sm font-medium  hover:bg-[#eef3f8] focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
                     <span>{group} </span>

@@ -63,7 +63,7 @@ const initialSongs: Song[] = [
 ];
 
 export default function Filter() {
-  const [songs, setSongs] = useState<Song[]>(initialSongs);
+  const [songs] = useState<Song[]>(initialSongs);
   const [groupBy, setGroupBy] = useState<"none" | "album" | "artist">("none");
   const [sortBy, setSortBy] = useState<"title" | "artist" | "album">("title");
   const [filterBy, setFilterBy] = useState<"title" | "artist" | "album">(

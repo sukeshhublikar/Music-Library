@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-interface User {
+export interface User {
   username: string;
   password: string;
   role: string;
@@ -10,7 +10,7 @@ const usersData: User[] = [
   { username: "user2@abc.com", password: "user2@abc", role: "user" },
 ];
 
-export default function Login() {
+export default function Login({onSuccess}:{onSuccess:(params:User)=>void}) {
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -24,14 +24,17 @@ export default function Login() {
         );
       });
       if (user) {
+
         localStorage.setItem("user", JSON.stringify(user));
+        onSuccess(user)
+
       }
     }
   };
 
   return (
-    <section className="bg-[#f5f8fb] items-center">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
+    <section className="bg-[#f5f8fb] items-center h-[90%]">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 h-full">
         <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
