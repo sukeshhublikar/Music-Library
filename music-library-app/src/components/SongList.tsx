@@ -1,4 +1,5 @@
 import { Disclosure } from "@headlessui/react";
+import CheckPermission from "./Permission";
 
 type Song = {
   id: number;
@@ -43,9 +44,20 @@ export default function SongList({ groupedSongs }: SongListProps) {
                   <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
                     <ul className="space-y-2">
                       {songs.map((song) => (
-                        <li key={song.id} className="bg-secondary p-2 rounded">
-                          <span className="font-semibold">{song.title}</span> by{" "}
+                        <li
+                          key={song.id}
+                          className="bg-secondary p-2 rounded w-full"
+                        >
+                          <span className="font-semibold">{song.title}</span> by
                           {song.artist} ({song.album})
+                          <CheckPermission role="admin">
+                            <button
+                              className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-light py-1 px-3 rounded float-right"
+                              onClick={() => alert("Delete")}
+                            >
+                              Delete
+                            </button>
+                          </CheckPermission>
                         </li>
                       ))}
                     </ul>

@@ -12,7 +12,7 @@ export default defineConfig({
       name: "musiclibrary",
       filename: "remoteEntry.js",
       exposes: {
-        "./IButton": "./src/Button.tsx",
+        "./MusicApp": "./src/MusicApp.tsx",
       },
       shared: ["react", "react-dom"],
     }),

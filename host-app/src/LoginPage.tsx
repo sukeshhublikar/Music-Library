@@ -10,11 +10,16 @@ const usersData: User[] = [
   { username: "user2@abc.com", password: "user2@abc", role: "user" },
 ];
 
-export default function Login({onSuccess}:{onSuccess:(params:User)=>void}) {
+export default function Login({
+  onSuccess,
+}: {
+  onSuccess: (params: User) => void;
+}) {
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const handleLogin = () => {
+  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     const username = usernameRef?.current;
     const password = passwordRef?.current;
     if (username?.value !== null && password?.value !== null) {
@@ -24,10 +29,8 @@ export default function Login({onSuccess}:{onSuccess:(params:User)=>void}) {
         );
       });
       if (user) {
-
         localStorage.setItem("user", JSON.stringify(user));
-        onSuccess(user)
-
+        onSuccess(user);
       }
     }
   };
@@ -90,7 +93,7 @@ export default function Login({onSuccess}:{onSuccess:(params:User)=>void}) {
               </div>
               <button
                 type="submit"
-                onClick={() => handleLogin()}
+                onClick={(e) => handleLogin(e)}
                 className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center "
               >
                 Sign in

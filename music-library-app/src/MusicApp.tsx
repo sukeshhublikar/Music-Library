@@ -1,11 +1,11 @@
 import "./App.css";
 import AppContainer from "./AppContainer";
-import Filter from "./components/Filter";
+import MusicLib from "./MusicLib";
 
 function MusicApp() {
   return (
     <AppContainer>
-      <Filter />
+      <MusicLib />
     </AppContainer>
   );
 }
