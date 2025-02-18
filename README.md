@@ -1,6 +1,9 @@
  # 🎵 Music-Library
 A React application that includes a MusicLibrary component wrapped in AppContainer.
 
+### Vite Plugin Federation
+This project uses vite-plugin-federation to enable module federation, allowing you to share and consume modules between different applications.
+
 📌 Prerequisites
 Ensure you have the following installed:
 
@@ -14,12 +17,25 @@ Ensure you have the following installed:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your-username/music-library.git
+   git clone https://github.com/sukeshhublikar/Music-Library.git
    cd music-library
 
 2. Install dependencies:
    ```sh  
-   pnpm install
+   cd host-app 
+   ```
+
+   ```sh
+    pnpm install
+   ```
+   ```sh  
+    cd music-library-app
+   ```
+
+   ```sh
+    pnpm install
+   ```
+   
 ### Running the Project
 
 1. Start the development server of host app:
@@ -45,5 +61,12 @@ To run the tests, use:
 pnpm test
 ```
 
+### Login Credentials 
+```sh
+[
+  { username: "user1@abc.com", password: "user1@abc", role: "admin" },
+  { username: "user2@abc.com", password: "user2@abc", role: "user" },
+];
+```
 
 
