@@ -1,4 +1,4 @@
-import { Song } from "./MusicLib";
+import { Song } from "./components/MusicLibrary";
 
 export const GROUP_BY = ["none", "artist", "album"];
 

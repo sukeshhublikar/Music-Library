@@ -16,7 +16,7 @@ export default function SongList({ groupedSongs }: SongListProps) {
   return (
     <div className="w-full">
       {Object.entries(groupedSongs).map(([group, songs]) => (
-        <div className="w-full px-4 mb-2">
+        <div className="w-full px-4 mb-2" key={group}>
           <div className=" w-full rounded-2xl bg-white p-2">
             <Disclosure key={group}>
               {() => (
@@ -48,8 +48,10 @@ export default function SongList({ groupedSongs }: SongListProps) {
                           key={song.id}
                           className="bg-secondary p-2 rounded w-full"
                         >
-                          <span className="font-semibold">{song.title}</span> by
-                          {song.artist} ({song.album})
+                          <span className="font-semibold">{song.title}</span>
+                          <span>
+                            by {song.artist} ({song.album})
+                          </span>
                           <CheckPermission role="admin">
                             <button
                               className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-light py-1 px-3 rounded float-right"
